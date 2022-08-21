@@ -1,22 +1,19 @@
 :root {
-    --amarelo :#e4f5b1;
+    --amarelo: #e4f5b1;
     --roxo1: #512b52;
-    --roxo2 :#635274;
-    --verde1 :#7bb0a8;
-    --verde2 :#a7dbab;
+    --roxo2: #635274;
+    --verde1: #7bb0a8;
+    --verde2: #a7dbab;
 
     --fonte: 'Noto Sans', sans-serif;
 }
 
-@media screen and (min-width: 400px){
-    body {
-        background-image: linear-gradient(to bottom right, var(--roxo1), black);
-        color: whitesmoke;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        font-family: var(--fonte);
-        min-height: 100vh;
-    }
+body {
+    background-image: linear-gradient(to bottom right, var(--roxo1), black);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--fonte);
+    min-height: 100vh;
 }
-

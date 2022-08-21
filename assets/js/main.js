@@ -76,15 +76,9 @@ function addSchedule(item) {
   newDate.innerHTML = item.date;
   newTime.innerHTML = item.time;
 
-  // newSchedule.appendChild(iNewDescription);
-  // newSchedule.appendChild(newDescription);
   newSchedule.appendChild(lineNewDescription)
   newSchedule.appendChild(lineNewDate)
   newSchedule.appendChild(lineNewTime)
-  // newSchedule.appendChild(iNewDate);
-  // newSchedule.appendChild(newDate);
-  // newSchedule.appendChild(iNewTime);
-  // newSchedule.appendChild(newTime);
 
   showResults.appendChild(newSchedule);
 }

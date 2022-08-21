@@ -93,3 +93,22 @@ main {
         width: 293px;
     }
 }
+
+@media screen and (max-width: 400px){
+    main {
+        flex-direction: column;
+    }
+
+    .add-item input {
+        margin: 1rem;
+    }
+
+    .inputs {
+        border-radius: 10px 10px 0 0;
+        height: 450px;
+    }
+
+    .results {
+        height: 450px;
+    }
+}
