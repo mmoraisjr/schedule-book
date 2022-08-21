@@ -6,20 +6,47 @@ const showDescription = document.querySelector(".show-description");
 const showDate = document.querySelector(".show-date");
 const showTime = document.querySelector(".show-time");
 
-var description;
-var date;
-var time;
+const form = document.getElementById("add-item");
+const items = localStorage.getItem("items") || [];
 
-btn.addEventListener("click", () => inputs());
+console.log(items);
 
-const inputs = () => {
-  description = inputDescription.value;
-  date = inputDate.value;
-  time = inputTime.value;
+// btn.addEventListener("click", () => inputs());
 
-  console.log(description);
-  
-  showDescription.innerHTML = description;
-  showDate.innerHTML = date;
-  showTime.innerHTML = time;
-};
+// const inputs = () => {
+//   description = inputDescription.value;
+//   date = inputDate.value;
+//   time = inputTime.value;
+
+//   showDescription.innerHTML = description;
+//   showDate.innerHTML = date;
+//   showTime.innerHTML = time;
+// };
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const description = e.target.elements["description"];
+  const date = e.target.elements["date"];
+  const time = e.target.elements["time"];
+
+  addSchedule(description, date, time);
+
+  description.value = "";
+  date.value = "";
+  time.value = "";
+
+  console.log(items);
+});
+
+function addSchedule(description, date, time) {
+  const item = {
+    "description": description,
+    "date": date,
+    "time": time
+  }
+
+  items.push(item);
+
+  localStorage.setItem("items", JSON.stringify(items));
+}
