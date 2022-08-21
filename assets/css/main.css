@@ -32,11 +32,18 @@ main {
 }
 
 .add-item button {
-    background: var(--verde2);
+    background: white;
     border-radius: 50px;
     color: var(--verde1);
+    font-weight: bold;
     margin: 2rem;
-    padding: .5rem 1rem;
+    padding: 1rem 1rem;
+}
+
+.add-item button:hover{
+    background: var(--verde2);
+    color: white;
+    font-weight: bold;
 }
 
 .inputs {
@@ -47,7 +54,7 @@ main {
     height: 600px;
     justify-content: center;
     padding: 2rem;
-    width: 350px;
+    width: 300px;
 }
 
 .results {
@@ -73,4 +80,16 @@ main {
 
 .show-schedule:hover {
     border: white solid 1px;
+}
+
+@media screen and (max-width: 1530px){
+    .results {
+        width: 586px;
+    }
+}
+
+@media screen and (max-width: 1237px){
+    .results {
+        width: 293px;
+    }
 }
