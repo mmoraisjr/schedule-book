@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title></title>
 </head>
 <body>
@@ -14,10 +17,13 @@
     <main>
         <section class="inputs">
             <form class="add-item" id="add-item">
-                <input type="text" name="description" id="description">
+                <label for="description">Description for Schedule</label>
+                <input type="text" name="description" id="description" placeholder="Insert description">
+                <label for="description">Date for Schedule</label>
                 <input type="date" name="date" id="date">
+                <label for="description">Time for Schedule</label>
                 <input type="time" name="time" id="time">
-                <input type="submit" name="btn" id="btn">
+                <button type="submit" name="btn" id="btn" value="submit">Create</button>
             </form>
         </section>
 
@@ -30,6 +36,7 @@
 
     </footer>
 
+    <script src="https://kit.fontawesome.com/fab8337305.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

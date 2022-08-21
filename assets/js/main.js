@@ -40,22 +40,51 @@ form.addEventListener("submit", (e) => {
 
 function addSchedule(item) {
   const newSchedule = document.createElement("div");
-  //inserir aqui as classes para o elemento
+  newSchedule.classList.add("show-schedule");
 
+  const lineNewDescription = document.createElement("div")
+  lineNewDescription.classList.add("line")
+  const iNewDescription = document.createElement("i");
+  iNewDescription.classList.add("fa-solid");
+  iNewDescription.classList.add("fa-message");
   const newDescription = document.createElement("p");
   newDescription.classList.add("show-description");
+  lineNewDescription.appendChild(iNewDescription);
+  lineNewDescription.appendChild(newDescription);
+
+  const lineNewDate = document.createElement("div")
+  lineNewDate.classList.add("line")
+  const iNewDate = document.createElement("i");
+  iNewDate.classList.add("fa-solid");
+  iNewDate.classList.add("fa-calendar-check");
   const newDate = document.createElement("p");
   newDate.classList.add("show-date");
+  lineNewDate.appendChild(iNewDate);
+  lineNewDate.appendChild(newDate);
+
+  const lineNewTime = document.createElement("div")
+  lineNewTime.classList.add("line")
+  const iNewTime = document.createElement("i");
+  iNewTime.classList.add("fa-solid");
+  iNewTime.classList.add("fa-clock");
   const newTime = document.createElement("p");
   newTime.classList.add("show-time");
+  lineNewTime.appendChild(iNewTime);
+  lineNewTime.appendChild(newTime);
 
   newDescription.innerHTML = item.description;
   newDate.innerHTML = item.date;
   newTime.innerHTML = item.time;
 
-  newSchedule.appendChild(newDescription);
-  newSchedule.appendChild(newDate);
-  newSchedule.appendChild(newTime);
+  // newSchedule.appendChild(iNewDescription);
+  // newSchedule.appendChild(newDescription);
+  newSchedule.appendChild(lineNewDescription)
+  newSchedule.appendChild(lineNewDate)
+  newSchedule.appendChild(lineNewTime)
+  // newSchedule.appendChild(iNewDate);
+  // newSchedule.appendChild(newDate);
+  // newSchedule.appendChild(iNewTime);
+  // newSchedule.appendChild(newTime);
 
   showResults.appendChild(newSchedule);
 }
