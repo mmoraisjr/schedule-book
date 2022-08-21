@@ -66,7 +66,7 @@ main {
     height: 590px;
     overflow: auto;
     padding: 1rem;
-    width: 900px;
+    width: 896px;
 }
 
 .show-schedule {
@@ -79,7 +79,8 @@ main {
 }
 
 .show-schedule:hover {
-    border: white solid 1px;
+    /* border: white solid 1px; */
+    box-shadow: black 2px 2px 10px;
 }
 
 @media screen and (max-width: 1530px){
@@ -97,6 +98,7 @@ main {
 @media screen and (max-width: 400px){
     main {
         flex-direction: column;
+        margin: 3rem 0;
     }
 
     .add-item input {

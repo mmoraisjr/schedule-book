@@ -1,2 +1,20 @@
 @import url(_reset.css);
 @import url(_style.css);
+
+footer {
+    height: 100px;
+    margin-top: 2rem;
+    text-align: center;
+    text-shadow: .1rem .1rem #333;
+}
+
+footer i{
+    color: var(--amarelo);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 2rem .5rem;
+}
+
+footer p {
+
+}
