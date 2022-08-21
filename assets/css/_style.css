@@ -1,0 +1,18 @@
+:root {
+    --roxo1: #512b52;
+    --roxo2 :#635274;
+    --verde1 :#7bb0a8;
+    --verde2 :#a7dbab;
+    --amarelo :#e4f5b1;
+
+    --fonte: 
+}
+
+body {
+    background-image: linear-gradient(to bottom right, var(--verde1), aqua);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fonte);
+    min-height: 100vh;
+    color: whitesmoke;
+}

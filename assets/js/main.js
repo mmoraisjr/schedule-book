@@ -9,7 +9,7 @@ items.forEach((i) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  
+
   //dentro do target do form, seleciona os elementos de cada id do form
   const description = e.target.elements["description"];
   const date = e.target.elements["date"];
@@ -28,7 +28,7 @@ form.addEventListener("submit", (e) => {
   //insere o item ao array dos itens
   items.push(item);
 
-  //como o LocalStorage so aceita conteúdo em String, 
+  //como o LocalStorage so aceita conteúdo em String,
   //o conteúdo do array é transformado em uma String para ser armazenado
   localStorage.setItem("items", JSON.stringify(items));
 
@@ -39,6 +39,9 @@ form.addEventListener("submit", (e) => {
 });
 
 function addSchedule(item) {
+  const newSchedule = document.createElement("div");
+  //inserir aqui as classes para o elemento
+
   const newDescription = document.createElement("p");
   newDescription.classList.add("show-description");
   const newDate = document.createElement("p");
@@ -50,11 +53,9 @@ function addSchedule(item) {
   newDate.innerHTML = item.date;
   newTime.innerHTML = item.time;
 
-  showResults.appendChild(newDescription);
-  showResults.appendChild(newDate);
-  showResults.appendChild(newTime);
+  newSchedule.appendChild(newDescription);
+  newSchedule.appendChild(newDate);
+  newSchedule.appendChild(newTime);
 
-  console.log(item.description);
-  console.log(item.date.value);
-  console.log(item.time.value);
+  showResults.appendChild(newSchedule);
 }
