@@ -72,6 +72,12 @@ function addSchedule(item) {
   lineNewTime.appendChild(iNewTime);
   lineNewTime.appendChild(newTime);
 
+  const completedScheduleBtn = document.createElement("i")
+  completedScheduleBtn.classList.add("fa-check");
+  completedScheduleBtn.classList.add("fa-solid");
+  completedScheduleBtn.addEventListener("click", () => completedSchedule(newSchedule));
+
+
   newDescription.innerHTML = item.description;
   newDate.innerHTML = item.date;
   newTime.innerHTML = item.time;
@@ -79,6 +85,17 @@ function addSchedule(item) {
   newSchedule.appendChild(lineNewDescription)
   newSchedule.appendChild(lineNewDate)
   newSchedule.appendChild(lineNewTime)
+  newSchedule.appendChild(completedScheduleBtn)
 
   showResults.appendChild(newSchedule);
 }
+
+const completedSchedule = (schedule) => {
+  const schedules = showResults.childNodes;
+
+  for (const s of schedules) {
+    if (s.firstChild.isSameNode(schedule)) {
+      s.firstChild.classList.toggle("schedule-completed");
+    }
+  }
+};
