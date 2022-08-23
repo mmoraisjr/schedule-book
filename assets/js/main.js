@@ -94,8 +94,9 @@ const completedSchedule = (schedule) => {
   const schedules = showResults.childNodes;
 
   for (const s of schedules) {
-    if (s.firstChild.isSameNode(schedule)) {
-      s.firstChild.classList.toggle("schedule-completed");
+    if (s.isSameNode(schedule)) {
+      s.classList.toggle("schedule-completed");
+      s.classList.toggle("show-schedule");
     }
   }
 };
