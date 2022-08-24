@@ -20,13 +20,13 @@ form.addEventListener("submit", (e) => {
     description: description.value,
     date: date.value,
     time: time.value,
+    isCompleted: false,
   };
+  //insere o item ao array dos itens
+  items.push(item);
 
   //executa a função de criar o item em tela
   addSchedule(item);
-
-  //insere o item ao array dos itens
-  items.push(item);
 
   //como o LocalStorage so aceita conteúdo em String,
   //o conteúdo do array é transformado em uma String para ser armazenado
@@ -40,10 +40,15 @@ form.addEventListener("submit", (e) => {
 
 function addSchedule(item) {
   const newSchedule = document.createElement("div");
-  newSchedule.classList.add("show-schedule");
+  if (item.isCompleted == false) {
+    newSchedule.classList.add("show-schedule");
+  } else {
+    newSchedule.classList.add("schedule-completed");
+  }
+  
 
-  const lineNewDescription = document.createElement("div")
-  lineNewDescription.classList.add("line")
+  const lineNewDescription = document.createElement("div");
+  lineNewDescription.classList.add("line");
   const iNewDescription = document.createElement("i");
   iNewDescription.classList.add("fa-solid");
   iNewDescription.classList.add("fa-message");
@@ -52,8 +57,8 @@ function addSchedule(item) {
   lineNewDescription.appendChild(iNewDescription);
   lineNewDescription.appendChild(newDescription);
 
-  const lineNewDate = document.createElement("div")
-  lineNewDate.classList.add("line")
+  const lineNewDate = document.createElement("div");
+  lineNewDate.classList.add("line");
   const iNewDate = document.createElement("i");
   iNewDate.classList.add("fa-solid");
   iNewDate.classList.add("fa-calendar-check");
@@ -62,8 +67,8 @@ function addSchedule(item) {
   lineNewDate.appendChild(iNewDate);
   lineNewDate.appendChild(newDate);
 
-  const lineNewTime = document.createElement("div")
-  lineNewTime.classList.add("line")
+  const lineNewTime = document.createElement("div");
+  lineNewTime.classList.add("line");
   const iNewTime = document.createElement("i");
   iNewTime.classList.add("fa-solid");
   iNewTime.classList.add("fa-clock");
@@ -72,20 +77,36 @@ function addSchedule(item) {
   lineNewTime.appendChild(iNewTime);
   lineNewTime.appendChild(newTime);
 
-  const completedScheduleBtn = document.createElement("i")
+  const completedScheduleBtn = document.createElement("i");
   completedScheduleBtn.classList.add("fa-check");
   completedScheduleBtn.classList.add("fa-solid");
-  completedScheduleBtn.addEventListener("click", () => completedSchedule(newSchedule));
+  completedScheduleBtn.addEventListener("click", () => {
+    // console.log(item.isCompleted);
+    if (item.isCompleted == false) {
+      item.isCompleted = true;
+      console.log(item.isCompleted);
+    } else {
+      item.isCompleted = false;
+      console.log(item.isCompleted);
+    }
+  });
 
+  const deleteScheduleBtn = document.createElement("i");
+  deleteScheduleBtn.classList.add("fa-solid");
+  deleteScheduleBtn.classList.add("fa-trash-can");
+  deleteScheduleBtn.addEventListener("click", () =>
+    deleteSchedule(newSchedule)
+  );
 
   newDescription.innerHTML = item.description;
   newDate.innerHTML = item.date;
   newTime.innerHTML = item.time;
 
-  newSchedule.appendChild(lineNewDescription)
-  newSchedule.appendChild(lineNewDate)
-  newSchedule.appendChild(lineNewTime)
-  newSchedule.appendChild(completedScheduleBtn)
+  newSchedule.appendChild(lineNewDescription);
+  newSchedule.appendChild(lineNewDate);
+  newSchedule.appendChild(lineNewTime);
+  newSchedule.appendChild(completedScheduleBtn);
+  newSchedule.appendChild(deleteScheduleBtn);
 
   showResults.appendChild(newSchedule);
 }
@@ -95,8 +116,19 @@ const completedSchedule = (schedule) => {
 
   for (const s of schedules) {
     if (s.isSameNode(schedule)) {
-      s.classList.toggle("schedule-completed");
-      s.classList.toggle("show-schedule");
+      // s.classList.toggle("schedule-completed");
+      // s.classList.toggle("show-schedule");
+      // console.log(items)
+    }
+  }
+};
+
+const deleteSchedule = (schedule) => {
+  const schedules = showResults.childNodes;
+
+  for (const s of schedules) {
+    if (s.isSameNode(schedule)) {
+      schedule.remove();
     }
   }
 };
