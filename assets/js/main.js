@@ -17,6 +17,7 @@ form.addEventListener("submit", (e) => {
 
   //a partir do valor inserido nos inputs do form, cria um objeto com os atributos correspondentes
   const item = {
+    id: String(items.length),
     description: description.value,
     date: date.value,
     time: time.value,
@@ -45,7 +46,6 @@ function addSchedule(item) {
   } else {
     newSchedule.classList.add("schedule-completed");
   }
-  
 
   const lineNewDescription = document.createElement("div");
   lineNewDescription.classList.add("line");
@@ -81,14 +81,19 @@ function addSchedule(item) {
   completedScheduleBtn.classList.add("fa-check");
   completedScheduleBtn.classList.add("fa-solid");
   completedScheduleBtn.addEventListener("click", () => {
-    // console.log(item.isCompleted);
-    if (item.isCompleted == false) {
-      item.isCompleted = true;
-      console.log(item.isCompleted);
-    } else {
-      item.isCompleted = false;
-      console.log(item.isCompleted);
-    }
+    const isCompleted = JSON.parse(localStorage.getItem("items"));
+    // console.log(item.id);
+    // console.log(isCompleted[item.id]);
+    // if (item.isCompleted === false) {
+    //   item.isCompleted = true;
+    //   localStorage.setItem("items", JSON.stringify(items));
+    //   newSchedule.classList.add("schedule-completed");
+    // } else {
+    //   item.isCompleted = false;
+    //   localStorage.setItem("items", JSON.stringify(items));
+    //   newSchedule.classList.add("show-schedule");
+    // }
+    completedSchedule(isCompleted);
   });
 
   const deleteScheduleBtn = document.createElement("i");
@@ -116,9 +121,10 @@ const completedSchedule = (schedule) => {
 
   for (const s of schedules) {
     if (s.isSameNode(schedule)) {
-      // s.classList.toggle("schedule-completed");
-      // s.classList.toggle("show-schedule");
-      // console.log(items)
+      const isCompleted = JSON.parse(localStorage.getItem(schedule));
+      console.log(isCompleted);
+      // console.log(schedule.id);
+      // console.log(isCompleted[schedule.id]);
     }
   }
 };
