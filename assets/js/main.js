@@ -82,18 +82,17 @@ function addSchedule(item) {
   completedScheduleBtn.classList.add("fa-solid");
   completedScheduleBtn.addEventListener("click", () => {
     const isCompleted = JSON.parse(localStorage.getItem("items"));
-    // console.log(item.id);
-    // console.log(isCompleted[item.id]);
-    // if (item.isCompleted === false) {
-    //   item.isCompleted = true;
-    //   localStorage.setItem("items", JSON.stringify(items));
-    //   newSchedule.classList.add("schedule-completed");
-    // } else {
-    //   item.isCompleted = false;
-    //   localStorage.setItem("items", JSON.stringify(items));
-    //   newSchedule.classList.add("show-schedule");
-    // }
-    completedSchedule(isCompleted);
+    if (item.isCompleted === false) {
+      item.isCompleted = true;
+      localStorage.setItem("items", JSON.stringify(items));
+      newSchedule.classList.toggle("schedule-completed");
+      newSchedule.classList.toggle("show-schedule");
+    } else {
+      item.isCompleted = false;
+      localStorage.setItem("items", JSON.stringify(items));
+      newSchedule.classList.toggle("schedule-completed");
+      newSchedule.classList.toggle("show-schedule");
+    }
   });
 
   const deleteScheduleBtn = document.createElement("i");
