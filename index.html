@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/header.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
     <title></title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <p>My Schedule Book</p>
+      <p>Agenda de Compromissos</p>
     </header>
 
     <main>
-        <section class="inputs">
-            <form class="add-item" id="add-item">
-                <label for="description">Description for Schedule</label>
-                <input type="text" name="description" id="description" placeholder="Insert description">
-                <label for="description">Date for Schedule</label>
-                <input type="date" name="date" id="date">
-                <label for="description">Time for Schedule</label>
-                <input type="time" name="time" id="time">
-                <button type="submit" name="btn" id="btn" value="submit">Create</button>
-            </form>
-        </section>
+      <section class="inputs">
+        <form class="add-item" id="add-item">
+          <label for="description">Descreva o compromisso</label>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Insira o compromisso aqui"
+          />
+          <label for="description">Data do Compromisso</label>
+          <input type="date" name="date" id="date" />
+          <label for="description">Horário do Compromisso</label>
+          <input type="time" name="time" id="time" />
+          <button type="submit" name="btn" id="btn" value="submit">
+            Criar compromisso
+          </button>
+        </form>
+      </section>
 
-        <section class="results">
-            
-        </section>
+      <section class="results"></section>
     </main>
 
     <footer>
-        <p>Desenvolvido por Marcos Morais</p>
-        <a href="https://www.linkedin.com/in/antonio-marcos-de-morais-jr/">
-            <i class="fa-brands fa-linkedin-in"> </i>
-        </a>
-         <a href="https://github.com/mmoraisjr">
-             <i class="fa-brands fa-square-github"></i>
-         </a>
+      <p>Desenvolvido por Marcos Morais</p>
+      <a href="https://www.linkedin.com/in/antonio-marcos-de-morais-jr/">
+        <i class="fa-brands fa-linkedin-in"> </i>
+      </a>
+      <a href="https://github.com/mmoraisjr">
+        <i class="fa-brands fa-square-github"></i>
+      </a>
     </footer>
 
-    <script src="https://kit.fontawesome.com/fab8337305.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/fab8337305.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="assets/js/main.js"></script>
-</body>
+  </body>
 </html>

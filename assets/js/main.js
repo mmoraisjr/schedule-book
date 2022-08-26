@@ -47,6 +47,9 @@ function addSchedule(item) {
     newSchedule.classList.add("schedule-completed");
   }
 
+  const contentSchedule = document.createElement("div");
+  contentSchedule.classList.add("content-schedule");
+
   const lineNewDescription = document.createElement("div");
   lineNewDescription.classList.add("line");
   const iNewDescription = document.createElement("i");
@@ -77,11 +80,18 @@ function addSchedule(item) {
   lineNewTime.appendChild(iNewTime);
   lineNewTime.appendChild(newTime);
 
+  contentSchedule.appendChild(lineNewDescription);
+  contentSchedule.appendChild(lineNewDate);
+  contentSchedule.appendChild(lineNewTime);
+
+  const buttonsSchedule = document.createElement("div");
+  buttonsSchedule.classList.add("buttons-schedule");
+
   const completedScheduleBtn = document.createElement("i");
   completedScheduleBtn.classList.add("fa-check");
   completedScheduleBtn.classList.add("fa-solid");
   completedScheduleBtn.addEventListener("click", () => {
-    const isCompleted = JSON.parse(localStorage.getItem("items"));
+    // const isCompleted = JSON.parse(localStorage.getItem("items"));
     if (item.isCompleted === false) {
       item.isCompleted = true;
       localStorage.setItem("items", JSON.stringify(items));
@@ -102,31 +112,18 @@ function addSchedule(item) {
     deleteSchedule(newSchedule)
   );
 
+  buttonsSchedule.appendChild(completedScheduleBtn);
+  buttonsSchedule.appendChild(deleteScheduleBtn);
+
   newDescription.innerHTML = item.description;
   newDate.innerHTML = item.date;
   newTime.innerHTML = item.time;
 
-  newSchedule.appendChild(lineNewDescription);
-  newSchedule.appendChild(lineNewDate);
-  newSchedule.appendChild(lineNewTime);
-  newSchedule.appendChild(completedScheduleBtn);
-  newSchedule.appendChild(deleteScheduleBtn);
+  newSchedule.appendChild(contentSchedule);
+  newSchedule.appendChild(buttonsSchedule);
 
   showResults.appendChild(newSchedule);
 }
-
-const completedSchedule = (schedule) => {
-  const schedules = showResults.childNodes;
-
-  for (const s of schedules) {
-    if (s.isSameNode(schedule)) {
-      const isCompleted = JSON.parse(localStorage.getItem(schedule));
-      console.log(isCompleted);
-      // console.log(schedule.id);
-      // console.log(isCompleted[schedule.id]);
-    }
-  }
-};
 
 const deleteSchedule = (schedule) => {
   const schedules = showResults.childNodes;
