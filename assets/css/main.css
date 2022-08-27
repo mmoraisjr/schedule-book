@@ -50,7 +50,10 @@ main {
 .schedule-completed {
     background: var(--verde2);
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
     height: 245px;
+    justify-content: space-between;
     margin: 1.5rem;
     padding: 1rem;
     width: 245px;

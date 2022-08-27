@@ -108,9 +108,16 @@ function addSchedule(item) {
   const deleteScheduleBtn = document.createElement("i");
   deleteScheduleBtn.classList.add("fa-solid");
   deleteScheduleBtn.classList.add("fa-trash-can");
-  deleteScheduleBtn.addEventListener("click", () =>
-    deleteSchedule(newSchedule)
-  );
+  deleteScheduleBtn.addEventListener("click", () => {
+    console.log(item);
+    console.log(item.id);
+    console.log(items.indexOf(item));
+    const id = items.indexOf(item);
+    console.log(id);
+    items.splice(id, 1);
+    localStorage.setItem("items", JSON.stringify(items));
+    newSchedule.remove();
+  });
 
   buttonsSchedule.appendChild(completedScheduleBtn);
   buttonsSchedule.appendChild(deleteScheduleBtn);
