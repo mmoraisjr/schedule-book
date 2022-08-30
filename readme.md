@@ -15,8 +15,9 @@
 
 - Ao inserir os dados, deve-se apertar o botão de "Criar compromisso", para que os dados possam ser apresentados na tela.
 
-### Por dentro do código
+## Por dentro do código
 
+### Inserção de dados na lista
 - Primeiramente é criada uma lista para armazenamento dos itens, ou recupera os dados, caso já exista previamente uma lista:
 ```javascript
 const items = JSON.parse(localStorage.getItem("items")) || [];
@@ -41,6 +42,28 @@ const item = {
     time: time.value,
     isCompleted: false,
   };
+```
+
+- O item criado é inserido dentro da lista através do PUSH:
+```javascript
+items.push(item);
+```
+
+- Como o Local Storage so aceita conteúdo em String, o conteúdo do array é convertido em uma String para ser armazenado:
+```javascript
+localStorage.setItem("items", JSON.stringify(items));
+```
+
+### Exclusão de dados na lista
+
+- A partir de um evento de "click" em um botão, é feita a busca pelo ID do item. Com a utilização do método "splice()" é feita a alteração do conteúdo da lista, removendo 1 elemento a partir do ID buscado.
+- Após a alteração do dado, a lista é armazenda novamente, agora com o item já excluído:
+```javascript
+deleteScheduleBtn.addEventListener("click", () => {
+const id = items.indexOf(item);
+items.splice(id, 1);
+localStorage.setItem("items", JSON.stringify(items));
+  });
 ```
 
 ### Considerações sobre o projeto
