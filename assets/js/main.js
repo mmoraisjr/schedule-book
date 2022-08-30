@@ -4,7 +4,7 @@ const showResults = document.querySelector(".results");
 
 //Percorre a lista de objetos já criados e executa a função de criação de item na tela
 items.forEach((i) => {
-  addSchedule(i);
+  createSchedule(i);
 });
 
 form.addEventListener("submit", (e) => {
@@ -27,7 +27,7 @@ form.addEventListener("submit", (e) => {
   items.push(item);
 
   //executa a função de criar o item em tela
-  addSchedule(item);
+  createSchedule(item);
 
   //como o LocalStorage so aceita conteúdo em String,
   //o conteúdo do array é transformado em uma String para ser armazenado
@@ -39,7 +39,7 @@ form.addEventListener("submit", (e) => {
   time.value = "";
 });
 
-function addSchedule(item) {
+function createSchedule(item) {
   const newSchedule = document.createElement("div");
   if (item.isCompleted == false) {
     newSchedule.classList.add("show-schedule");
@@ -91,7 +91,6 @@ function addSchedule(item) {
   completedScheduleBtn.classList.add("fa-check");
   completedScheduleBtn.classList.add("fa-solid");
   completedScheduleBtn.addEventListener("click", () => {
-    // const isCompleted = JSON.parse(localStorage.getItem("items"));
     if (item.isCompleted === false) {
       item.isCompleted = true;
       localStorage.setItem("items", JSON.stringify(items));
@@ -109,11 +108,7 @@ function addSchedule(item) {
   deleteScheduleBtn.classList.add("fa-solid");
   deleteScheduleBtn.classList.add("fa-trash-can");
   deleteScheduleBtn.addEventListener("click", () => {
-    console.log(item);
-    console.log(item.id);
-    console.log(items.indexOf(item));
     const id = items.indexOf(item);
-    console.log(id);
     items.splice(id, 1);
     localStorage.setItem("items", JSON.stringify(items));
     newSchedule.remove();
@@ -131,13 +126,3 @@ function addSchedule(item) {
 
   showResults.appendChild(newSchedule);
 }
-
-const deleteSchedule = (schedule) => {
-  const schedules = showResults.childNodes;
-
-  for (const s of schedules) {
-    if (s.isSameNode(schedule)) {
-      schedule.remove();
-    }
-  }
-};

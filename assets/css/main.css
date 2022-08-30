@@ -34,6 +34,7 @@ main {
     font-weight: bold;
     margin: 2rem;
     padding: 1rem 1rem;
+    cursor: pointer;
 }
 
 .add-item button:hover{
